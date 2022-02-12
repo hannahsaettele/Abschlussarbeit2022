@@ -6,56 +6,42 @@ var Dönerladen;
     */
     window.addEventListener("load", handleLoad);
     let background;
+    //Eingabefelder Quelle: Sequenzmemory
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
         if (!canvas)
             return;
         Dönerladen.crc2 = canvas.getContext("2d");
-        //enums anlegen
-        let MOOD;
-        (function (MOOD) {
-            MOOD[MOOD["happy"] = 0] = "happy";
-            MOOD[MOOD["bored"] = 1] = "bored";
-            MOOD[MOOD["aggressiv"] = 2] = "aggressiv";
-        })(MOOD || (MOOD = {}));
-        ;
-        let TASK;
-        (function (TASK) {
-            TASK[TASK["prepareFood"] = 0] = "prepareFood";
-            TASK[TASK["cutFood"] = 1] = "cutFood";
-            TASK[TASK["stockUp"] = 2] = "stockUp";
-            TASK[TASK["wait"] = 3] = "wait";
-        })(TASK || (TASK = {}));
-        ;
-        let DISH;
-        (function (DISH) {
-            DISH[DISH["D\u00F6ner"] = 0] = "D\u00F6ner";
-            DISH[DISH["Lahmacun"] = 1] = "Lahmacun";
-            DISH[DISH["Yuffka"] = 2] = "Yuffka";
-        })(DISH || (DISH = {}));
-        ;
-        let SPECIAL;
-        (function (SPECIAL) {
-            SPECIAL[SPECIAL["ohneZwiebeln"] = 0] = "ohneZwiebeln";
-            SPECIAL[SPECIAL["extraScharf"] = 1] = "extraScharf";
-            SPECIAL[SPECIAL["vielSo\u00DFe"] = 2] = "vielSo\u00DFe";
-            SPECIAL[SPECIAL["kein"] = 3] = "kein";
-            SPECIAL[SPECIAL["Special"] = 4] = "Special";
-        })(SPECIAL || (SPECIAL = {}));
-        ;
-        let INGREDIENT;
-        (function (INGREDIENT) {
-            INGREDIENT[INGREDIENT["Tomaten"] = 0] = "Tomaten";
-            INGREDIENT[INGREDIENT["Zwieblen"] = 1] = "Zwieblen";
-            INGREDIENT[INGREDIENT["Mais"] = 2] = "Mais";
-            INGREDIENT[INGREDIENT["Salat"] = 3] = "Salat";
-            INGREDIENT[INGREDIENT["Kraut"] = 4] = "Kraut";
-            INGREDIENT[INGREDIENT["Falafel"] = 5] = "Falafel";
-            INGREDIENT[INGREDIENT["So\u00DFe"] = 6] = "So\u00DFe";
-            INGREDIENT[INGREDIENT["Chilliso\u00DFe"] = 7] = "Chilliso\u00DFe";
-        })(INGREDIENT || (INGREDIENT = {}));
-        ;
+        //alle div Elemente klickbar machen
+        let divs = document.querySelectorAll("div");
+        for (let i = 0; i > divs.length; i++) {
+            divs[i].addEventListener("click", doIt);
+        }
+        startTrainer();
+        createContainer();
     }
-    window.addEventListener("click");
+    function doIt() {
+        //
+    }
+    function startTrainer() {
+        drawBackground();
+        background = Dönerladen.crc2.getImageData(0, 0, Dönerladen.crc2.canvas.width, Dönerladen.crc2.canvas.height);
+    }
+    function drawBackground() {
+        Dönerladen.crc2.fillStyle = "#FFC0CB";
+        Dönerladen.crc2.fillRect(0, 0, Dönerladen.crc2.canvas.width, Dönerladen.crc2.canvas.height);
+    }
+    function createContainer(_position) {
+        Dönerladen.crc2.save();
+        Dönerladen.crc2.beginPath();
+        // Stamm erstellen
+        Dönerladen.crc2.translate(500, 500);
+        Dönerladen.crc2.moveTo(0, 0);
+        Dönerladen.crc2.rect(-5, -20, 10, 20); // beginn links oben rectangle Rechteck
+        Dönerladen.crc2.closePath();
+        Dönerladen.crc2.fillStyle = "darkrosa";
+        Dönerladen.crc2.fill();
+        let container = new Path2D();
+    }
 })(Dönerladen || (Dönerladen = {}));
 //# sourceMappingURL=main.js.map

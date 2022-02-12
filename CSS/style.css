@@ -1,9 +1,7 @@
-body {
-    display: block;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      grid-template-rows: auto auto
-  }
+body, html {
+    background-color: "rosa";
+}
+
   input[type="radio"], input[type="checkbox"], label {
       display: inline;
-  }
+  };

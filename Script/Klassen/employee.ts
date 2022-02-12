@@ -1,5 +1,18 @@
 namespace Dönerladen {
 
+    enum TASK {
+        prepareFood, 
+        cutFood,
+        stockUp,
+        wait
+    }; 
+    
+    enum MOOD {
+        happy,
+        bored,
+        aggressiv
+    };
+
     export abstract class Employee {
         task: TASK;
         isClicked: boolean;
