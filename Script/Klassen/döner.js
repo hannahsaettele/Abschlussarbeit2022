@@ -7,7 +7,6 @@ var Dönerladen;
         DISH[DISH["Lahmacun"] = 1] = "Lahmacun";
         DISH[DISH["Yuffka"] = 2] = "Yuffka";
     })(DISH || (DISH = {}));
-    ;
     class Döner {
         type;
         currentIngredients;
@@ -15,6 +14,7 @@ var Dönerladen;
             //
         }
         addIngredient() {
+            //
         }
     }
     Dönerladen.Döner = Döner;

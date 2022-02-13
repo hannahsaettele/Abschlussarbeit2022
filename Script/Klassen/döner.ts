@@ -4,7 +4,7 @@ namespace Dönerladen {
         Döner,
         Lahmacun,
         Yuffka
-    };
+    }
     
     export abstract class Döner {
     type: DISH;
@@ -15,7 +15,7 @@ namespace Dönerladen {
         }
 
         addIngredient(){
-
+//
     }
     }
 }
