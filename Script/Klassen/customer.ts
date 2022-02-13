@@ -34,7 +34,7 @@ namespace Dönerladen {
             this.posY = _posY;
         }
         animate():void{
-            console.log(this.farbe);
+           
             this.move();
             this.draw();
         }
@@ -68,7 +68,7 @@ namespace Dönerladen {
                crc2.fill();
                crc2.fillRect(this.posX-50,this.posY-35,50,10);
                crc2.fillRect(this.posX-50,this.posY+25,50,10);
-               console.log("sd");
+               
             }
         }
     }

@@ -28,6 +28,7 @@ var Dönerladen;
         minimumWorkload;
         speedX = 1;
         speedY = 1;
+        left = false;
         constructor(_posX, _posY) {
             this.posX = _posX;
             this.posY = _posY;
@@ -44,9 +45,11 @@ var Dönerladen;
         moveto(_xPos, _yPos) {
             if (this.posX < _xPos) {
                 this.speedX = 1;
+                this.left = false;
             }
             else if (this.posX > _xPos) {
                 this.speedX = -1;
+                this.left = true;
             }
             else {
                 this.speedX = 0;
@@ -62,7 +65,7 @@ var Dönerladen;
             }
         }
         draw() {
-            if (this.speedX > 0) {
+            if (this.left == false) {
                 Dönerladen.crc2.beginPath();
                 Dönerladen.crc2.strokeStyle = "black";
                 Dönerladen.crc2.fillStyle = "black";
@@ -81,7 +84,6 @@ var Dönerladen;
                 Dönerladen.crc2.fill();
                 Dönerladen.crc2.fillRect(this.posX - 50, this.posY - 35, 50, 10);
                 Dönerladen.crc2.fillRect(this.posX - 50, this.posY + 25, 50, 10);
-                console.log("sd");
             }
         }
         prepareFood() {

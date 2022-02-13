@@ -38,7 +38,6 @@ var Dönerladen;
             this.posY = _posY;
         }
         animate() {
-            console.log(this.farbe);
             this.move();
             this.draw();
         }
@@ -71,7 +70,6 @@ var Dönerladen;
                 Dönerladen.crc2.fill();
                 Dönerladen.crc2.fillRect(this.posX - 50, this.posY - 35, 50, 10);
                 Dönerladen.crc2.fillRect(this.posX - 50, this.posY + 25, 50, 10);
-                console.log("sd");
             }
         }
     }
