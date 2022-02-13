@@ -28,6 +28,15 @@ body {
 fieldset {
   display: flex;
 }
-form {
+
+#settings {
+  display:block;
   position: absolute;
 }
+#screen {
+  border: 1px solid black;
+ display: none;
+ width:180%;
+ margin-left:10%;
+}
+

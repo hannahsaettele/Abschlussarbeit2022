@@ -16,13 +16,13 @@
 </head>
 
 <body>
-    <canvas width=1000 height=600></canvas>
+    <canvas id="screen" width=1000 height=600></canvas>
     <form>
-        <div id="form">
+        <div  id="settings">
             <h1>Döner-Trainer</h1>
             <fieldset id="fsText">
                 <legend>number of employees</legend>
-                <input type="number" name="Number" placeholder="?" min="2" max="8" required />
+                <input id="customerAnzahl" type="number" name="customer" placeholder="?" min="2" max="8" required />
             </fieldset>
             <fieldset>
                 <legend>workload of employees</legend>
@@ -39,15 +39,13 @@
             <fieldset>
             <legend>container size</legend>
             They're pink anyway, but you can choose:
-            <br>
 				<input type="radio" name="Container" id="slim" value="Slim"/>
 				<label for="slim">slim</label>
 				<input type="radio" name="Container" id="wide" value="Wide"/>
 				<label for="wide">wide</label>
             </fieldset>
                 <h2> Are you ready? </h2>
-                <button type="startButton">yesssss! START </button>
-
+                <button type="button" id="startButton">yesssss! START </button>
         </form>
         </div>
         <div class="ingredient">

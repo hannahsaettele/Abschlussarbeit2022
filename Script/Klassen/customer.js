@@ -29,12 +29,50 @@ var Dönerladen;
         extra;
         isDishCorrect;
         waitingTime;
-        constructor() {
-            //
+        posX;
+        posY;
+        speed = 1;
+        farbe = [Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255)];
+        constructor(_posX, _posY) {
+            this.posX = _posX;
+            this.posY = _posY;
         }
-        move(_timeslice) {
+        animate() {
+            console.log(this.farbe);
+            this.move();
+            this.draw();
+        }
+        move() {
+            this.posX += this.speed;
+            if (this.posX > 1000) {
+                this.speed *= -1;
+            }
+            else if (this.posX < 700) {
+                this.speed *= -1;
+            }
         }
         draw() {
+            if (this.speed > 0) {
+                Dönerladen.crc2.beginPath();
+                Dönerladen.crc2.strokeStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                Dönerladen.crc2.fillStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                Dönerladen.crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
+                Dönerladen.crc2.stroke();
+                Dönerladen.crc2.fill();
+                Dönerladen.crc2.fillRect(this.posX, this.posY - 35, 50, 10);
+                Dönerladen.crc2.fillRect(this.posX, this.posY + 25, 50, 10);
+            }
+            else {
+                Dönerladen.crc2.beginPath();
+                Dönerladen.crc2.strokeStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                Dönerladen.crc2.fillStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                Dönerladen.crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
+                Dönerladen.crc2.stroke();
+                Dönerladen.crc2.fill();
+                Dönerladen.crc2.fillRect(this.posX - 50, this.posY - 35, 50, 10);
+                Dönerladen.crc2.fillRect(this.posX - 50, this.posY + 25, 50, 10);
+                console.log("sd");
+            }
         }
     }
     Dönerladen.Customer = Customer;

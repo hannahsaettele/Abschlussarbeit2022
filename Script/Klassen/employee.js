@@ -17,6 +17,8 @@ var Dönerladen;
     })(MOOD || (MOOD = {}));
     ;
     class Employee {
+        posX;
+        posY;
         task;
         isClicked;
         isBussy; //evtl ist der unnötig 
@@ -24,12 +26,63 @@ var Dönerladen;
         workload;
         maximumWorkload;
         minimumWorkload;
-        constructor() {
-            //
+        speedX = 1;
+        speedY = 1;
+        constructor(_posX, _posY) {
+            this.posX = _posX;
+            this.posY = _posY;
         }
-        move(_timeslice) {
+        animate(_xPos, _yPos) {
+            this.moveto(_xPos, _yPos);
+            this.move();
+            this.draw();
+        }
+        move() {
+            this.posX += this.speedX;
+            this.posY += this.speedY;
+        }
+        moveto(_xPos, _yPos) {
+            if (this.posX < _xPos) {
+                this.speedX = 1;
+            }
+            else if (this.posX > _xPos) {
+                this.speedX = -1;
+            }
+            else {
+                this.speedX = 0;
+            }
+            if (this.posY < _yPos) {
+                this.speedY = 1;
+            }
+            else if (this.posY > _yPos) {
+                this.speedY = -1;
+            }
+            else {
+                this.speedY = 0;
+            }
         }
         draw() {
+            if (this.speedX > 0) {
+                Dönerladen.crc2.beginPath();
+                Dönerladen.crc2.strokeStyle = "black";
+                Dönerladen.crc2.fillStyle = "black";
+                Dönerladen.crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
+                Dönerladen.crc2.stroke();
+                Dönerladen.crc2.fill();
+                Dönerladen.crc2.fillRect(this.posX, this.posY - 35, 50, 10);
+                Dönerladen.crc2.fillRect(this.posX, this.posY + 25, 50, 10);
+            }
+            else {
+                Dönerladen.crc2.beginPath();
+                Dönerladen.crc2.strokeStyle = "black";
+                Dönerladen.crc2.fillStyle = "black";
+                Dönerladen.crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
+                Dönerladen.crc2.stroke();
+                Dönerladen.crc2.fill();
+                Dönerladen.crc2.fillRect(this.posX - 50, this.posY - 35, 50, 10);
+                Dönerladen.crc2.fillRect(this.posX - 50, this.posY + 25, 50, 10);
+                console.log("sd");
+            }
         }
         prepareFood() {
         }
