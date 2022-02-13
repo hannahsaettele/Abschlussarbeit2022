@@ -6,38 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Abschlussarbeit Dönerladen</title>
-	<link rel="stylesheet" href="/Abschlussarbeit2022/CSS/style.css" type="text/css" media="screen" />
-    <script src ="/Abschlussarbeit2022/Script/Klassen/customer.js"></script>
+    <link rel="stylesheet" href="/Abschlussarbeit2022/CSS/style.css" type="text/css" media="screen" />
+    <script src="/Abschlussarbeit2022/Script/Klassen/customer.js"></script>
     <script src="/Abschlussarbeit2022/Script/Klassen/employee.js"></script>
     <script src="/Abschlussarbeit2022/Script/Klassen/stock.js"></script>
     <script src="/Abschlussarbeit2022/Script/Klassen/vector.js"></script>
     <script src="/Abschlussarbeit2022/Script/Klassen/moveable.js"></script>
     <script src="/Abschlussarbeit2022/Script/main.js"></script>
 </head>
+
 <body>
-    <canvas width=800 height=600></canvas>
+    <canvas width=1000 height=600></canvas>
     <form>
-		<div id="form">
-			<h1>define your Döner-Trainer</h1>
-			<fieldset id="fsText">
-				<legend>employees</legend>
-				slid for your number of employees
-				<input type="range" name="Slider" min="0" max="1" step="0.1" value="0" />
-			</fieldset>
-			<fieldset>
-				<legend> time slot </legend>
-				<input type="text" name="Text" placeholder="type here" required />
-			</fieldset>
+        <div id="form">
+            <h1>Döner-Trainer</h1>
+            <fieldset id="fsText">
+                <legend>number of employees</legend>
+                <input type="number" name="Number" placeholder="?" min="2" max="8" required />
+            </fieldset>
             <fieldset>
-				<legend>customer</legend>
-				<input type="text" name="Text" placeholder="type here" required />
-			</fieldset>
+                <legend>workload of employees</legend>
+                <input type="range" name="Slider" min="0" max="3" step="1" value="0" />
+            </fieldset>
             <fieldset>
-				<legend> stock quantity </legend> 
-				<input type="text" name="Text" placeholder="type here" required />
-			</fieldset>
-		</div>
-        <div class="ingredient"> 
+                <legend>customers per time</legend>
+                <input type="range" name="Slider" min="0" max="3" step="1" value="0" />
+            </fieldset>
+            <fieldset>
+                <legend> stock quantity </legend>
+                <input type="range" name="Slider" min="0" max="3" step="1" value="0" />
+            </fieldset>
+            <fieldset>
+            <legend>container size</legend>
+            They're pink anyway, but you can choose:
+            <br>
+				<input type="radio" name="Container" id="slim" value="Slim"/>
+				<label for="slim">slim</label>
+				<input type="radio" name="Container" id="wide" value="Wide"/>
+				<label for="wide">wide</label>
+            </fieldset>
+                <h2> Are you ready? </h2>
+                <button type="startButton">yesssss! START </button>
+        </form>
+        </div>
+        <div class="ingredient">
             <div id="tomaten"></div>
             <div id="zwiebeln"></div>
             <div id="mais"></div>
@@ -46,19 +58,12 @@
             <div id="soße"></div>
             <div id="chillisoße"></div>
         </div>
-        <div
-            class="special">
+        <div class="special">
             <div id="ohneZwiebeln"></div>
-            <div id= "extraScharf"></div>
-            <div id= "vielSoße"></div>
-            <div id= "keinSpecial"></div>
+            <div id="extraScharf"></div>
+            <div id="vielSoße"></div>
+            <div id="keinSpecial"></div>
         </div>
-
-	</form>
-	<fieldset>
-		<legend> Are you ready? </legend>
-		<button type="button">yesssss! START </button>
-	</fieldset>
 </body>
 
 </html>

@@ -1,7 +1,33 @@
-body, html {
-    background-color: "rosa";
+body {
+  background-image: url(/Abschlussarbeit2022/CSS/bg.png);
+  display: block;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
 }
+  h1,h2, legend {
+   font-family:Georgia, 'Times New Roman', Times, serif;
+   color: blueviolet;
+  }
 
-  input[type="radio"], input[type="checkbox"], label {
-      display: inline;
-  };
+  h1, h2 {
+    text-align: center;
+  }
+  h2{
+    font-size: medium;
+  }
+  button {
+    border: 3px solid blueviolet;
+    border-radius: 10px;
+    margin-top: 2%;
+    padding: 2%;
+    left: 50%;
+    transform: translate(-50%);
+    position: relative;
+}
+fieldset {
+  display: flex;
+}
+form {
+  position: absolute;
+}
