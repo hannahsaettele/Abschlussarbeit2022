@@ -18,7 +18,8 @@ namespace Dönerladen {
         speedX: number = 1;
         speedY: number = 1;
         left: boolean = false;
-        active:boolean = false;
+        active: boolean = false;
+
         constructor(_posX: number, _posY: number) {
             this.posX = _posX;
             this.posY = _posY;

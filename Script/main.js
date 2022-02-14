@@ -15,7 +15,7 @@ var Dönerladen;
     let boxPos = [];
     let canvas;
     let auswahl = [500, 300];
-    // let stock: Stock;
+    let stock;
     let vorrat = false;
     let doener;
     let donerFertig = false;
@@ -39,10 +39,11 @@ var Dönerladen;
         Dönerladen.crc2 = canvas.getContext("2d");
         //alle div Elemente klickbar machen
         let divs = document.querySelectorAll("div");
-        for (let i = 0; i > divs.length; i++) {
+        for (let i = 0; i > divs.length; i++) { // nutze ich im code nicht weiters
             divs[i].addEventListener("click", startTrainer);
             createGamefield();
         }
+        //Dönerladen mit seinen Elementen erstellen
         function createGamefield() {
             formData = new FormData(document.forms[0]);
             document.getElementById("screen").style.display = "block";

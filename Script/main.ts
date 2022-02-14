@@ -16,7 +16,7 @@ namespace Dönerladen {
     let boxPos: number[][] = [];
     let canvas: HTMLCanvasElement | null;
     let auswahl: number[] = [500, 300];
-   // let stock: Stock;
+    let stock: Stock;
     let vorrat: boolean = false;
     let doener: Doner;
     let donerFertig: boolean = false;
@@ -48,13 +48,14 @@ namespace Dönerladen {
         //alle div Elemente klickbar machen
         let divs: NodeListOf<HTMLDivElement> = document.querySelectorAll("div");
 
-        for (let i: number = 0; i > divs.length; i++) {
+        for (let i: number = 0; i > divs.length; i++) {               // nutze ich im code nicht weiters
             divs[i].addEventListener("click", startTrainer);
 
             createGamefield();
 
         }
 
+        //Dönerladen mit seinen Elementen erstellen
         function createGamefield(): void {
             formData = new FormData(document.forms[0]);
             document.getElementById("screen").style.display = "block";

@@ -1,14 +1,14 @@
 namespace Dönerladen {
 
-   /* enum INGREDIENT {
-        Tomaten,
-        Zwieblen,
-        Salat,
-        Kraut,
-        Falafel,
-        Soße,
-        Chillisoße
-    } */
+    /* enum INGREDIENT {
+         Tomaten,
+         Zwieblen,
+         Salat,
+         Kraut,
+         Falafel,
+         Soße,
+         Chillisoße
+     } */
 
 
     export class Stock {
@@ -18,11 +18,12 @@ namespace Dönerladen {
         tomatenMax: number;
         zwiebelnMax: number;
         salatMax: number;
-        krautMax: number ;
-        falafelMax: number ;
-        soßeMax: number ;
+        krautMax: number;
+        falafelMax: number;
+        soßeMax: number;
         doenerGroeße: number = 25;
-        constructor(_volumen:number) {
+
+        constructor(_volumen: number) {
             this.behaelterVolumen = _volumen;
             this.tomatenMax = this.behaelterVolumen;
             this.zwiebelnMax = this.behaelterVolumen;
@@ -40,7 +41,7 @@ namespace Dönerladen {
                 }
             }
         }
-        addIngredient(_zutatID: number, _volumen:number) {
+        addIngredient(_zutatID: number, _volumen: number) {
             if (_zutatID == 1) {
                 this.tomatenMax = _volumen;
             }
