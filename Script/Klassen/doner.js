@@ -2,8 +2,94 @@
 var Dönerladen;
 (function (Dönerladen) {
     class Doner {
+        tomaten = false;
+        zwiebeln = false;
+        salat = false;
+        kraut = false;
+        falafel = false;
+        soße = false;
+        inhalt = [];
         constructor() {
             // 
+        }
+        add(_zutatID) {
+            if (_zutatID == 1) {
+                this.tomaten = true;
+                this.inhalt.push("tomaten");
+            }
+            else if (_zutatID == 2) {
+                this.zwiebeln = true;
+                this.inhalt.push("zwiebeln");
+            }
+            else if (_zutatID == 3) {
+                this.salat = true;
+                this.inhalt.push("salat");
+            }
+            else if (_zutatID == 4) {
+                this.kraut = true;
+                this.inhalt.push("kraut");
+            }
+            else if (_zutatID == 5) {
+                this.falafel = true;
+                this.inhalt.push("falafel");
+            }
+            else if (_zutatID == 6) {
+                this.soße = true;
+                this.inhalt.push("soße");
+            }
+        }
+        getDonerBool(_zutatID) {
+            if (_zutatID == 1) {
+                return this.tomaten;
+            }
+            else if (_zutatID == 2) {
+                return this.zwiebeln;
+            }
+            else if (_zutatID == 3) {
+                return this.salat;
+            }
+            else if (_zutatID == 4) {
+                return this.kraut;
+            }
+            else if (_zutatID == 5) {
+                return this.falafel;
+            }
+            else if (_zutatID == 6) {
+                return this.soße;
+            }
+            return false;
+        }
+        getDonerString() {
+            return this.inhalt;
+        }
+        setDoner() {
+            this.tomaten = false;
+            this.salat = false;
+            this.falafel = false;
+            this.kraut = false;
+            this.soße = false;
+            this.zwiebeln = false;
+            this.inhalt = [];
+        }
+        drawDoner(_xPos, _yPos) {
+            if (this.salat == true) {
+                this.drawSalat(_xPos, _yPos);
+            }
+            if (this.soße == true) {
+                this.drawSoße(_xPos, _yPos);
+            }
+            if (this.tomaten == true) {
+                this.drawTomaten(_xPos, _yPos);
+            }
+            if (this.zwiebeln == true) {
+                this.drawZwiebeln(_xPos, _yPos);
+            }
+            if (this.falafel == true) {
+                this.drawFalafel(_xPos, _yPos);
+            }
+            if (this.kraut == true) {
+                this.drawKraut(_xPos, _yPos);
+            }
         }
         drawTomaten(_xPos, _yPos) {
             Dönerladen.crc2.beginPath();
@@ -62,4 +148,4 @@ var Dönerladen;
     }
     Dönerladen.Doner = Doner;
 })(Dönerladen || (Dönerladen = {}));
-//# sourceMappingURL=d%C3%B6ner.js.map
+//# sourceMappingURL=doner.js.map

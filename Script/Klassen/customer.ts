@@ -4,71 +4,121 @@ namespace Dönerladen {
         happy,
         bored,
         aggressiv
-    };
+    }
+
     enum DISH {
         Döner,
         Lahmacun,
         Yuffka
-    };
-    enum SPECIAL {
-        ohneZwiebeln,
-        extraScharf,
-        vielSoße,
-        keinSpecial
-    };
+    }
 
-    export  class Customer {
-        mood: MOOD;
-        order: DISH;
-        extra: SPECIAL;
+    enum Zutaten {
+       
+     
+    }
+
+    export class Customer {
+        zutaten : string[] = ["tomaten",
+        "zwiebeln",
+        "salat",
+        "kraut",
+        "falafel",
+        "soße"];
+        wunschZutaten : string[] = [];
         isDishCorrect: boolean;
         waitingTime: number;
-
-        posX:number;
-        posY:number;
-        speed:number = 1;
-        farbe:number[] = [Math.round(Math.random()*255),Math.round(Math.random()*255),Math.round(Math.random()*255)];
+        erhalten:boolean = false;
+        posX: number;
+        posY: number;
+        speed: number = 1;
+        farbe: number[] = [Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255)];
+        bestellungInhalt : number =  Math.round(Math.random()*5);
+        left:boolean = true;
         
-                constructor(_posX:number,_posY:number) {
+
+        constructor(_posX: number, _posY: number) {
             this.posX = _posX;
             this.posY = _posY;
+        for(let i:number = 0; i<= this.bestellungInhalt;i++){
+            this.wunschZutaten.push(this.zutaten[i]);
         }
-        animate():void{
-           
+        console.log(this.zutaten);
+            
+        }
+        animate(): void {
+
             this.move();
             this.draw();
+            this.bestellungAnzeige();
+        }
+        setErhalten(){
+         this.erhalten = true;
+         
         }
         move(): void {
-                this.posX += this.speed;
-                if(this.posX >1000){
-                    this.speed *=-1;
+            
+            if (this.posX < 2050 && this.erhalten == true) {
+                this.posX += +1;
+                this.left = false;
+            }
+            else if (this.posX > 700 && this.erhalten == false) {
+                this.posX += -1;
+                this.left  =true;
+            }
+            else if(this.posX == 2050 && this.erhalten== true){
+                console.log(this.zutaten);
+                this.neuKunde();
+               
+            }
+        }
+        neuKunde(){
+            this.posX -=1;
+            
+                this.left=true;
+                this.wunschZutaten = [];
+                console.log(this.wunschZutaten);
+                this.erhalten = false;
+                this.bestellungInhalt=  Math.round(Math.random()*5);
+                for(let i:number = 0; i<= this.bestellungInhalt;i++){
+                    this.wunschZutaten.push(this.zutaten[i]);
                 }
-                else if(this.posX <700){
-                    this.speed *=-1;
-                }
+                this.farbe = [Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255)];
+                console.log(this.wunschZutaten);
+              
+        }
+        bestellungAnzeige(){
+            for(let i :number = 0; i<= this.bestellungInhalt;i++){
+                crc2.font = "25px Verdana";
+                crc2.fillStyle = "black";
+
+                crc2.fillText(this.zutaten[i], this.posX,this.posY+30*i+50);     
+            }
+        }
+        getBestellung():string[]{
+            return this.wunschZutaten;
         }
         draw(): void {
-            if(this.speed>0){
-            crc2.beginPath();
-            crc2.strokeStyle = "rgb("+this.farbe[0]+","+this.farbe[1]+","+this.farbe[2]+")";
-           crc2.fillStyle = "rgb("+this.farbe[0]+","+this.farbe[1]+","+this.farbe[2]+")";
-          crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
-           crc2.stroke();
-           crc2.fill();
-           crc2.fillRect(this.posX,this.posY-35,50,10);
-           crc2.fillRect(this.posX,this.posY+25,50,10);
-         
-            }
-            else{
+            if (this.left == false) {
                 crc2.beginPath();
-                crc2.strokeStyle = "rgb("+this.farbe[0]+","+this.farbe[1]+","+this.farbe[2]+")";
-               crc2.fillStyle = "rgb("+this.farbe[0]+","+this.farbe[1]+","+this.farbe[2]+")";
-              crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
-               crc2.stroke();
-               crc2.fill();
-               crc2.fillRect(this.posX-50,this.posY-35,50,10);
-               crc2.fillRect(this.posX-50,this.posY+25,50,10);
-               
+                crc2.strokeStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                crc2.fillStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
+                crc2.stroke();
+                crc2.fill();
+                crc2.fillRect(this.posX, this.posY - 35, 50, 10);
+                crc2.fillRect(this.posX, this.posY + 25, 50, 10);
+
+            }
+            else {
+                crc2.beginPath();
+                crc2.strokeStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                crc2.fillStyle = "rgb(" + this.farbe[0] + "," + this.farbe[1] + "," + this.farbe[2] + ")";
+                crc2.arc(this.posX, this.posY, 30, 0, 2 * Math.PI);
+                crc2.stroke();
+                crc2.fill();
+                crc2.fillRect(this.posX - 50, this.posY - 35, 50, 10);
+                crc2.fillRect(this.posX - 50, this.posY + 25, 50, 10);
+
             }
         }
     }

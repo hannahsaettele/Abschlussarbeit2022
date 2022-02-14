@@ -8,14 +8,12 @@ var Dönerladen;
         TASK[TASK["stockUp"] = 2] = "stockUp";
         TASK[TASK["wait"] = 3] = "wait";
     })(TASK || (TASK = {}));
-    ;
     let MOOD;
     (function (MOOD) {
         MOOD[MOOD["happy"] = 0] = "happy";
         MOOD[MOOD["bored"] = 1] = "bored";
         MOOD[MOOD["aggressiv"] = 2] = "aggressiv";
     })(MOOD || (MOOD = {}));
-    ;
     class Employee {
         posX;
         posY;

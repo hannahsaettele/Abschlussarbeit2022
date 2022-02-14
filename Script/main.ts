@@ -16,6 +16,16 @@ namespace Dönerladen {
     let boxPos:number[][] = [];
     let canvas: HTMLCanvasElement | null;
     let auswahl:number[] = [500,300];
+    let stock :Stock;
+    let vorrat:boolean = false;
+    let doener: Doner;
+    let donerFertig : boolean = false;
+    let zutaten : string[] = ["tomaten",
+    "zwiebeln",
+    "salat",
+    "kraut",
+    "falafel",
+    "soße"];
     function handleLoad(_event: Event): void {
         
         let startButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#startButton"); // mit klick auf Start, wird Döner-Trainer erstellt
@@ -62,9 +72,10 @@ namespace Dönerladen {
                 boxPos.push([510, (110 + i * 65)]);
                     
             }
-            console.log(boxPos);  
+            stock = new Stock();
+            doener = new Doner();
             startTrainer();
-            background = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height); // Boden
+            //background = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height); // Boden
           
         
         }
@@ -72,7 +83,11 @@ namespace Dönerladen {
 
 
         function startTrainer(): void {
+            
                 drawBackground();
+             
+                
+                
                 employer1.animate(auswahl[0]-40,auswahl[1]+25);
                
                 for(let i:number=0; i<customers.length;i++){
@@ -82,9 +97,35 @@ namespace Dönerladen {
                     employers[i].draw();
                 }
                 
+                stock.update();
+                doener.drawDoner(650,300);
                 setTimeout(startTrainer,5);
-        }
 
+            doenerBestellungFertig();
+
+                if(donerFertig == true){
+                    doener.setDoner();
+              
+                    donerFertig = false;
+                   
+                }
+        }
+        function doenerBestellungFertig(){
+            let j:number = 0;
+          
+            for(let i :number = 0; i<customers[0].getBestellung().length; i++){
+                if(doener.getDonerString()[i] == customers[0].getBestellung()[i]){
+                    j++
+                }
+                if(j ==customers[0].getBestellung().length){
+                    donerFertig = true;
+                    customers[0].setErhalten();
+                }
+            }
+         
+            j = 0;
+            
+        }
         function drawBackground(): void {            
             crc2.fillStyle = "white";
             crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -98,6 +139,21 @@ namespace Dönerladen {
             for(let i:number = 0; i<6; i++){
                 crc2.beginPath();
                 crc2.fillRect(boxPos[i][0], boxPos[i][1],100, 50);
+                crc2.fillStyle = "#32CD32";
+                if(  stock.getFullstand(i+1) > 0){
+                    crc2.fillRect(boxPos[i][0], boxPos[i][1], stock.getFullstand(i+1), 50);
+                    crc2.font = "25px Verdana";
+                    crc2.fillStyle = "black";
+                    crc2.fillText(zutaten[i], boxPos[i][0]+8, boxPos[i][1]+35);
+                }
+                else {
+                    crc2.fillStyle = "red";
+                    crc2.fillRect(boxPos[i][0], boxPos[i][1], 100, 50);
+                    crc2.font = "25px Verdana";
+                    crc2.fillStyle = "black";
+                    crc2.fillText("empty", boxPos[i][0]+8, boxPos[i][1]+35);
+                }
+                crc2.fillStyle = "#777";
                 crc2.closePath();
             }
            
@@ -120,12 +176,24 @@ namespace Dönerladen {
             let pos :any = getMousePos(event);
             console.log(boxPos.length);
             for(let i:number=0; i<boxPos.length; i++){
-                console.log(boxPos[i][1]);
-                if(pos.x > boxPos[i][0] && pos.x < boxPos[i][0]+100 && pos.y > boxPos[i][1] && pos.y < boxPos[i][1]+50){
+               
+                if(pos.x > boxPos[i][0] && pos.x < boxPos[i][0]+100 && pos.y > boxPos[i][1] && pos.y < boxPos[i][1]+50 && vorrat == false && doener.getDonerBool(i+1)==false){
                     auswahl[0] = boxPos[i][0];
                     auswahl[1] = boxPos[i][1];
-                    
+                    stock.removeIngredient(i+1);
+                   doener.add(i+1);
                 }
+                else if(pos.x > boxPos[i][0] && pos.x < boxPos[i][0]+100 && pos.y > boxPos[i][1] && pos.y < boxPos[i][1]+50 && vorrat == true){
+                    auswahl[0] = boxPos[i][0];
+                    auswahl[1] = boxPos[i][1];
+                    stock.addIngredient(i+1);
+                    vorrat = false;
+                }
+            }
+            if(pos.x > 0 && pos.x < 200 && pos.y >0 && pos.y < 600){
+                auswahl[0] = 250;
+                auswahl[1] = 300;
+                vorrat = true;
             }
         }
     }
