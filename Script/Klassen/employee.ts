@@ -1,12 +1,5 @@
 namespace Dönerladen {
 
-    enum TASK {
-        prepareFood,
-        cutFood,
-        stockUp,
-        wait
-    }
-
     enum MOOD {
         happy,
         bored,
@@ -16,7 +9,6 @@ namespace Dönerladen {
     export class Employee {
         posX: number;
         posY: number;
-        task: TASK;
         isClicked: boolean;
         isBussy: boolean; //evtl ist der unnötig 
         mood: MOOD;
@@ -90,14 +82,11 @@ namespace Dönerladen {
                 crc2.fillRect(this.posX - 50, this.posY + 25, 50, 10);
             }
         }
-        prepareFood() {
-
-        }
-        cutFood() {
+        /*cutFood() {
 
         }
         stockUp() {
 
-        }
+        }*/
     }
 }

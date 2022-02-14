@@ -1,16 +1,15 @@
 "use strict";
 var Dönerladen;
 (function (Dönerladen) {
-    let INGREDIENT;
-    (function (INGREDIENT) {
-        INGREDIENT[INGREDIENT["Tomaten"] = 0] = "Tomaten";
-        INGREDIENT[INGREDIENT["Zwieblen"] = 1] = "Zwieblen";
-        INGREDIENT[INGREDIENT["Salat"] = 2] = "Salat";
-        INGREDIENT[INGREDIENT["Kraut"] = 3] = "Kraut";
-        INGREDIENT[INGREDIENT["Falafel"] = 4] = "Falafel";
-        INGREDIENT[INGREDIENT["So\u00DFe"] = 5] = "So\u00DFe";
-        INGREDIENT[INGREDIENT["Chilliso\u00DFe"] = 6] = "Chilliso\u00DFe";
-    })(INGREDIENT || (INGREDIENT = {}));
+    /* enum INGREDIENT {
+         Tomaten,
+         Zwieblen,
+         Salat,
+         Kraut,
+         Falafel,
+         Soße,
+         Chillisoße
+     } */
     class Stock {
         behaelterVolumen = 0;
         tomatenMax;

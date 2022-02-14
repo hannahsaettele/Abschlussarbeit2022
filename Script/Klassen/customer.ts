@@ -1,21 +1,6 @@
 namespace Dönerladen {
 
-    enum MOOD {
-        happy,
-        bored,
-        aggressiv
-    }
 
-    enum DISH {
-        Döner,
-        Lahmacun,
-        Yuffka
-    }
-
-    enum Zutaten {
-
-
-    }
 
     export class Customer {
         zutaten: string[] = ["tomaten",

@@ -1,6 +1,6 @@
 namespace Dönerladen {
 
-    enum INGREDIENT {
+   /* enum INGREDIENT {
         Tomaten,
         Zwieblen,
         Salat,
@@ -8,7 +8,7 @@ namespace Dönerladen {
         Falafel,
         Soße,
         Chillisoße
-    }
+    } */
 
 
     export class Stock {

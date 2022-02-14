@@ -1,13 +1,6 @@
 "use strict";
 var Dönerladen;
 (function (Dönerladen) {
-    let TASK;
-    (function (TASK) {
-        TASK[TASK["prepareFood"] = 0] = "prepareFood";
-        TASK[TASK["cutFood"] = 1] = "cutFood";
-        TASK[TASK["stockUp"] = 2] = "stockUp";
-        TASK[TASK["wait"] = 3] = "wait";
-    })(TASK || (TASK = {}));
     let MOOD;
     (function (MOOD) {
         MOOD[MOOD["happy"] = 0] = "happy";
@@ -17,7 +10,6 @@ var Dönerladen;
     class Employee {
         posX;
         posY;
-        task;
         isClicked;
         isBussy; //evtl ist der unnötig 
         mood;
@@ -89,12 +81,6 @@ var Dönerladen;
                 Dönerladen.crc2.fillRect(this.posX - 50, this.posY - 35, 50, 10);
                 Dönerladen.crc2.fillRect(this.posX - 50, this.posY + 25, 50, 10);
             }
-        }
-        prepareFood() {
-        }
-        cutFood() {
-        }
-        stockUp() {
         }
     }
     Dönerladen.Employee = Employee;

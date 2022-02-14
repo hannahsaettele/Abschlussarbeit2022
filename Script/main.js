@@ -3,6 +3,7 @@ var Dönerladen;
 (function (Dönerladen) {
     /*Abschlussarbeit, Hannah Sättele, Matrikelnr. 268473, erstellt.: 27.01.22;
     Inspiration: Lukas D.
+    Unterstützt: Maxime Caruso
     */
     window.addEventListener("load", handleLoad);
     let background;
@@ -14,7 +15,7 @@ var Dönerladen;
     let boxPos = [];
     let canvas;
     let auswahl = [500, 300];
-    let stock;
+    // let stock: Stock;
     let vorrat = false;
     let doener;
     let donerFertig = false;
@@ -28,7 +29,7 @@ var Dönerladen;
     let counter = 0;
     let employerAuswahl = 0;
     let moodValue = 0;
-    function handleLoad(_event) {
+    function handleLoad() {
         let startButton = document.querySelector("#startButton"); // mit klick auf Start, wird Döner-Trainer erstellt
         startButton.addEventListener("click", createGamefield);
         canvas = document.querySelector("canvas");
