@@ -138,8 +138,11 @@ namespace Dönerladen {
             crc2.fillStyle = "#FF69B4";
             crc2.fillRect(500, 100,200, 400);
             crc2.fillRect(0, 0,200, 600);
+            crc2.font = "30px Verdana";
+            crc2.fillStyle = "black";
+            crc2.fillText("ROHSTOFFE",10, 300);
             crc2.fillStyle = "#000";
-            crc2.fillRect(0, 0,300, 100);
+            crc2.fillRect(0, 0,200, 100);
             crc2.fillStyle = "#777";
             crc2.closePath();
          
@@ -177,19 +180,31 @@ namespace Dönerladen {
 
             if(moodValue == 0){
                 crc2.fillStyle = "white";
-                crc2.fillRect(0,0,100,100);
+                crc2.fillRect(100,0,100,100);
+                crc2.font = "50px Verdana";
+                    crc2.fillStyle = "black";
+                    crc2.fillText(":D",110, 60);
             }
             if(moodValue == 1){
-                crc2.fillStyle = "white";
-                crc2.fillRect(0,0,100,100);
+                crc2.fillStyle = "green";
+                crc2.fillRect(100,0,100,100);
+                crc2.font = "50px Verdana";
+                crc2.fillStyle = "black";
+                crc2.fillText(":)",110, 60);
             }
             if(moodValue == 2){
                 crc2.fillStyle = "orange";
-                crc2.fillRect(0,0,100,100);
+                crc2.fillRect(100,0,100,100);
+                crc2.font = "50px Verdana";
+                crc2.fillStyle = "black";
+                crc2.fillText(":O",110, 60);
             }
             if(moodValue >= 3){
                 crc2.fillStyle = "red";
-                crc2.fillRect(0,0,100,100);
+                crc2.fillRect(100,0,100,100);
+                crc2.font = "50px Verdana";
+                crc2.fillStyle = "black";
+                crc2.fillText(":(",110, 60);
             }
             
         }

@@ -107,8 +107,11 @@ var Dönerladen;
             Dönerladen.crc2.fillStyle = "#FF69B4";
             Dönerladen.crc2.fillRect(500, 100, 200, 400);
             Dönerladen.crc2.fillRect(0, 0, 200, 600);
+            Dönerladen.crc2.font = "30px Verdana";
+            Dönerladen.crc2.fillStyle = "black";
+            Dönerladen.crc2.fillText("ROHSTOFFE", 10, 300);
             Dönerladen.crc2.fillStyle = "#000";
-            Dönerladen.crc2.fillRect(0, 0, 300, 100);
+            Dönerladen.crc2.fillRect(0, 0, 200, 100);
             Dönerladen.crc2.fillStyle = "#777";
             Dönerladen.crc2.closePath();
             for (let i = 0; i < 6; i++) {
@@ -142,19 +145,31 @@ var Dönerladen;
             Dönerladen.crc2.fill();
             if (moodValue == 0) {
                 Dönerladen.crc2.fillStyle = "white";
-                Dönerladen.crc2.fillRect(0, 0, 100, 100);
+                Dönerladen.crc2.fillRect(100, 0, 100, 100);
+                Dönerladen.crc2.font = "50px Verdana";
+                Dönerladen.crc2.fillStyle = "black";
+                Dönerladen.crc2.fillText(":D", 110, 60);
             }
             if (moodValue == 1) {
-                Dönerladen.crc2.fillStyle = "white";
-                Dönerladen.crc2.fillRect(0, 0, 100, 100);
+                Dönerladen.crc2.fillStyle = "green";
+                Dönerladen.crc2.fillRect(100, 0, 100, 100);
+                Dönerladen.crc2.font = "50px Verdana";
+                Dönerladen.crc2.fillStyle = "black";
+                Dönerladen.crc2.fillText(":)", 110, 60);
             }
             if (moodValue == 2) {
                 Dönerladen.crc2.fillStyle = "orange";
-                Dönerladen.crc2.fillRect(0, 0, 100, 100);
+                Dönerladen.crc2.fillRect(100, 0, 100, 100);
+                Dönerladen.crc2.font = "50px Verdana";
+                Dönerladen.crc2.fillStyle = "black";
+                Dönerladen.crc2.fillText(":O", 110, 60);
             }
             if (moodValue >= 3) {
                 Dönerladen.crc2.fillStyle = "red";
-                Dönerladen.crc2.fillRect(0, 0, 100, 100);
+                Dönerladen.crc2.fillRect(100, 0, 100, 100);
+                Dönerladen.crc2.font = "50px Verdana";
+                Dönerladen.crc2.fillStyle = "black";
+                Dönerladen.crc2.fillText(":(", 110, 60);
             }
         }
         function getMousePos(evt) {
