@@ -32,17 +32,21 @@ namespace Dönerladen {
         posY: number;
         speed: number = 1;
         farbe: number[] = [Math.round(Math.random() * 255), Math.round(Math.random() * 255), Math.round(Math.random() * 255)];
-        bestellungInhalt : number =  Math.round(Math.random()*5);
+        bestellungInhalt : number;
         left:boolean = true;
-        
+        workload:number;
+        custumorTime:number;
 
-        constructor(_posX: number, _posY: number) {
+        constructor(_posX: number, _posY: number, _time:number,_workload:number) {
             this.posX = _posX;
             this.posY = _posY;
+            this.custumorTime = _time;
+            this.workload = _workload;
+            this.bestellungInhalt =   Math.round(Math.random()*this.workload);
         for(let i:number = 0; i<= this.bestellungInhalt;i++){
             this.wunschZutaten.push(this.zutaten[i]);
         }
-        console.log(this.zutaten);
+    
             
         }
         animate(): void {
@@ -57,15 +61,15 @@ namespace Dönerladen {
         }
         move(): void {
             
-            if (this.posX < 2050 && this.erhalten == true) {
+            if (this.posX < 1050+ 1000/this.custumorTime && this.erhalten == true) {
                 this.posX += +1;
                 this.left = false;
             }
-            else if (this.posX > 700 && this.erhalten == false) {
+            else if (this.posX > 750 && this.erhalten == false) {
                 this.posX += -1;
                 this.left  =true;
             }
-            else if(this.posX == 2050 && this.erhalten== true){
+            else if(this.posX >= 1050 + 1000/this.custumorTime && this.erhalten== true){
                 console.log(this.zutaten);
                 this.neuKunde();
                
@@ -78,7 +82,7 @@ namespace Dönerladen {
                 this.wunschZutaten = [];
                 console.log(this.wunschZutaten);
                 this.erhalten = false;
-                this.bestellungInhalt=  Math.round(Math.random()*5);
+                this.bestellungInhalt=  Math.round(Math.random()*this.workload);
                 for(let i:number = 0; i<= this.bestellungInhalt;i++){
                     this.wunschZutaten.push(this.zutaten[i]);
                 }

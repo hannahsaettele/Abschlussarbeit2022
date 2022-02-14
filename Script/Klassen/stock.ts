@@ -14,16 +14,22 @@ namespace Dönerladen {
     export class Stock {
 
 
-        behaelterVolumen: number = 100;
-        tomatenMax: number = this.behaelterVolumen;
-        zwiebelnMax: number = this.behaelterVolumen;
-        salatMax: number = this.behaelterVolumen;
-        krautMax: number = this.behaelterVolumen;
-        falafelMax: number = this.behaelterVolumen;
-        soßeMax: number = this.behaelterVolumen;
+        behaelterVolumen: number = 0;
+        tomatenMax: number;
+        zwiebelnMax: number;
+        salatMax: number;
+        krautMax: number ;
+        falafelMax: number ;
+        soßeMax: number ;
         doenerGroeße: number = 25;
-        constructor() {
-            // 
+        constructor(_volumen:number) {
+            this.behaelterVolumen = _volumen;
+            this.tomatenMax = this.behaelterVolumen;
+            this.zwiebelnMax = this.behaelterVolumen;
+            this.salatMax = this.behaelterVolumen;
+            this.krautMax = this.behaelterVolumen;
+            this.falafelMax = this.behaelterVolumen;
+            this.soßeMax = this.behaelterVolumen;
         }
         update() {
             for (let i: number = 0; i < 6; i++) {
@@ -34,24 +40,24 @@ namespace Dönerladen {
                 }
             }
         }
-        addIngredient(_zutatID: number) {
+        addIngredient(_zutatID: number, _volumen:number) {
             if (_zutatID == 1) {
-                this.tomatenMax = 100;
+                this.tomatenMax = _volumen;
             }
             else if (_zutatID == 2) {
-                this.zwiebelnMax = 100;
+                this.zwiebelnMax = _volumen;
             }
             else if (_zutatID == 3) {
-                this.salatMax = 100;
+                this.salatMax = _volumen;
             }
             else if (_zutatID == 4) {
-                this.krautMax = 100;
+                this.krautMax = _volumen;
             }
             else if (_zutatID == 5) {
-                this.falafelMax = 100;
+                this.falafelMax = _volumen;
             }
             else if (_zutatID == 6) {
-                this.soßeMax = 100;
+                this.soßeMax = _volumen;
             }
         }
         setIngredient(_zutatID: number, set: number) {

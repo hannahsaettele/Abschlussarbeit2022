@@ -27,7 +27,7 @@
             </fieldset>
             <fieldset>
                 <legend>workload of employees</legend>
-                <input type="range" name="Slider" min="0" max="3" step="1" value="0" />
+                <input id="workload" type="range" name="Slider" min="0" max="5" step="1" value="0" />
             </fieldset>
             <fieldset>
                 <legend>customers per time</legend>
@@ -35,16 +35,9 @@
             </fieldset>
             <fieldset>
                 <legend> stock quantity </legend>
-                <input type="range" name="Slider" min="0" max="3" step="1" value="0" />
+                <input id="stock" type="range" name="Slider" min="25" max="100" step="1" value="0" />
             </fieldset>
-            <fieldset>
-            <legend>container size</legend>
-            They're pink anyway, but you can choose:
-				<input type="radio" name="Container" id="slim" value="Slim"/>
-				<label for="slim">slim</label>
-				<input type="radio" name="Container" id="wide" value="Wide"/>
-				<label for="wide">wide</label>
-            </fieldset>
+            
                 <h2> Are you ready? </h2>
                 <button type="button" id="startButton">yesssss! START </button>
         </form>

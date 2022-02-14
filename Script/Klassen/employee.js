@@ -27,12 +27,18 @@ var Dönerladen;
         speedX = 1;
         speedY = 1;
         left = false;
+        active = false;
         constructor(_posX, _posY) {
             this.posX = _posX;
             this.posY = _posY;
         }
         animate(_xPos, _yPos) {
-            this.moveto(_xPos, _yPos);
+            if (this.active == true) {
+                this.moveto(_xPos, _yPos);
+            }
+            else {
+                this.moveto(300, 500);
+            }
             this.move();
             this.draw();
         }
