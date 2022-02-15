@@ -9,8 +9,6 @@ var Dönerladen;
             "falafel",
             "soße"];
         wunschZutaten = [];
-        isDishCorrect;
-        waitingTime;
         erhalten = false;
         posX;
         posY;

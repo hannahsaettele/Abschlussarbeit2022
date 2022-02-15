@@ -27,8 +27,6 @@ namespace Dönerladen {
         animate(_xPos: number, _yPos: number): void {
             if(this.active == true){
                 this.moveto(_xPos, _yPos);
-            
-           
             }
             else{
                 this.moveto(300,500);

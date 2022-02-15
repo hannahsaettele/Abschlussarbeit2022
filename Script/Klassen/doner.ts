@@ -8,6 +8,7 @@ namespace Dönerladen {
     falafel: boolean = false;
     soße: boolean = false;
     inhalt: string[] = [];
+    
     constructor() {
       // 
     }

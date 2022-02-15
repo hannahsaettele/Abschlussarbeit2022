@@ -42,9 +42,6 @@ namespace Dönerladen {
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-
-
-
         //alle div Elemente klickbar machen
         let divs: NodeListOf<HTMLDivElement> = document.querySelectorAll("div");
 
@@ -153,7 +150,7 @@ namespace Dönerladen {
                 crc2.beginPath();
                 crc2.fillRect(boxPos[i][0], boxPos[i][1], volumenStcok, 50);
                 crc2.fillStyle = "#32CD32";
-                if (stock.getFullstand(i + 1) > 0) {
+                if (stock.getFullstand(i + 1) > 0) { 
                     crc2.fillRect(boxPos[i][0], boxPos[i][1], stock.getFullstand(i + 1), 50);
                     crc2.font = "25px Verdana";
                     crc2.fillStyle = "black";
@@ -181,7 +178,7 @@ namespace Dönerladen {
             crc2.stroke();
             crc2.fill();
 
-            if (moodValue == 0) {
+            if (moodValue == 0) { //Mood Abfrage
                 crc2.fillStyle = "white";
                 crc2.fillRect(100, 0, 100, 100);
                 crc2.font = "50px Verdana";
@@ -250,6 +247,5 @@ namespace Dönerladen {
 
             }
         }
-
-
     }
+}

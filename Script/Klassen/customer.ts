@@ -10,8 +10,6 @@ namespace Dönerladen {
             "falafel",
             "soße"];
         wunschZutaten: string[] = [];
-        isDishCorrect: boolean;
-        waitingTime: number;
         erhalten: boolean = false;
         posX: number;
         posY: number;

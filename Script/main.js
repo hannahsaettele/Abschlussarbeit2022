@@ -145,7 +145,7 @@ var Dönerladen;
             Dönerladen.crc2.arc(650, 300, 30, 0, 2 * Math.PI);
             Dönerladen.crc2.stroke();
             Dönerladen.crc2.fill();
-            if (moodValue == 0) {
+            if (moodValue == 0) { //Mood Abfrage
                 Dönerladen.crc2.fillStyle = "white";
                 Dönerladen.crc2.fillRect(100, 0, 100, 100);
                 Dönerladen.crc2.font = "50px Verdana";
